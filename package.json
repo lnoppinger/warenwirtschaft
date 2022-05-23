@@ -1,0 +1,33 @@
+{
+  "name": "...",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L start.js",
+    "start": "node ./start.js",
+    "setup": "bash ./setup/default.sh ./.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lnoppinger/....git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lnoppinger/.../issues"
+  },
+  "homepage": "https://github.com/lnoppinger/...#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-formidable": "^1.2.0",
+    "morgan": "^1.10.0",
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+  }
+}
