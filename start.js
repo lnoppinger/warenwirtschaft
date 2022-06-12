@@ -1,3 +1,4 @@
+require("dotenv").config()
 const app = require('express')()
 
 
@@ -10,9 +11,9 @@ app.use( require("./routes/routes") )
 
 
 // Start server
-const port = process.env.BASE_URL?.split("://")[1]?.split(":")[1] || 3000
+const port = process.env.PORT || 3000
 const host = "0.0.0.0"
 
 app.listen(port, host, () => {
-    console.log(`Server running at ${process.env.BASE_URL}`)
+    console.log(`Server running at ${process.env.BASE_URL || "https://localhost:" + port}`)
 })

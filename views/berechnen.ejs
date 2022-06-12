@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+    <title> Berechnen </title>
+</head>
+<body>
+    <div style="width: 100%">
+        <a href="/" style="color: black; text-decoration: none"> Zurück </a>
+    </div>
+
+    <h1> <%= title %> </h1>
+
+    <section>
+        <input type="text" id="rezept" list="rezepte-liste">
+        <button id="start"> Starten </button>
+    </section>
+
+    <section>
+        <pre id="ergebnis"></pre>
+    </section>
+
+    <datalist id="rezepte-liste"> </datalist>
+    
+    <script>
+        window.onload = async () => {
+            await fillListe()
+
+            document.getElementById("start").addEventListener("click", e => {
+                start()
+            }) 
+        }
+
+        async function fillListe() {
+            let res = await fetch("/api/rezept/alle")
+
+            if(res.ok) {
+                let body = await res.json()
+
+                body.rezepte.forEach( r => {
+                    let opt = document.createElement("option")
+                    opt.value = r.name
+                    opt.dataset.json = encodeURI(JSON.stringify(r))
+
+                    document.getElementById("rezepte-liste").appendChild(opt)
+                })
+            }
+        }
+
+        async function start() {
+            let name = document.getElementById("rezept").value
+            
+            let id = -1
+            for(let opt of document.getElementById("rezepte-liste").children) {
+                let json = JSON.parse( decodeURI(opt.dataset.json) )
+
+                if(json.name == name) {
+                    id = json.id
+                }
+            }
+
+            if(id < 0) {
+                setResult(`Ein Rezept mit dem Namen '${name}' existiert nicht`, "error") 
+                return
+            }
+
+            let res = await fetch(`/api/berechnen/${id}/<%= apiLastPath %>`)
+
+            if(res.ok) {
+                let body = await res.text()
+
+                setResult(body, "normal")
+            } else {
+                let body = await res.text()
+
+                setResult(body, "error")
+            }
+
+        }
+
+        function setResult(text, status) {
+            let p = document.getElementById("ergebnis")
+            if(status == "normal") {
+                p.style.color = "black"
+            } else if(status == "success") {
+                p.style.color = "green"
+            } else if(status == "error") {
+                p.style.color = "red"
+            }
+            p.innerText = text
+        }
+    </script>
+</body>
+</html>

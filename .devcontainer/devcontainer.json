@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.205.2/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "",
+	"name": "Warenwirtschaft",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -36,6 +36,7 @@
 		"syler.sass-indented",
 		"ritwickdey.live-sass",
 		"flowtype.flow-for-vscode",
+		"ckolkman.vscode-postgres"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -48,7 +49,7 @@
 	// "shutdownAction": "none",
 
 	// Uncomment the next line to run commands after the container is created - for example installing curl.
-	"initializeCommand": "npm run setup",
+	// "initializeCommand": "npm run setup",
 	"postCreateCommand": "npm install",
 	"postStartCommand": "npm run dev",
 	"overrideCommand": true

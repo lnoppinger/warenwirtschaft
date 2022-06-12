@@ -1,5 +1,5 @@
 {
-  "name": "...",
+  "name": "Warenwirtschaft",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,24 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lnoppinger/....git"
+    "url": "git+https://github.com/lnoppinger/warenwirtschaft.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lnoppinger/.../issues"
+    "url": "https://github.com/lnoppinger/warenwirtschaft/issues"
   },
-  "homepage": "https://github.com/lnoppinger/...#readme",
+  "homepage": "https://github.com/lnoppinger/warenwirtschaft#readme",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.1",
-    "express-formidable": "^1.2.0",
+    "express-formidable-v2": "^2.2.1",
     "morgan": "^1.10.0",
+    "pg-promise": "^10.11.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.12"
   }
 }

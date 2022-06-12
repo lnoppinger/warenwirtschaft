@@ -22,7 +22,8 @@ app.use( require('cookie-parser')(process.env.COOKIE_SECRET) )
 
 
 // Routing
-
+app.use("/", require("./render"))
+app.use("/api", require("./api/_routes"))
 
 
 // static Files
