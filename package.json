@@ -30,5 +30,10 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "nodeWinInstaller": {
+    "db": {
+      "init_file": "./.devcontainer/db/init.sql"
+    }
   }
 }
