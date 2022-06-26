@@ -2,7 +2,7 @@
   "name": "Warenwirtschaft",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "dev": "nodemon -L start.js",
     "start": "node ./start.js",
